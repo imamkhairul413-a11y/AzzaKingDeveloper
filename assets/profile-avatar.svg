@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070c1e" />
+      <stop offset="50%" stop-color="#0b1736" />
+      <stop offset="100%" stop-color="#030611" />
+    </linearGradient>
+    <linearGradient id="visorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <linearGradient id="suitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc" />
+      <stop offset="100%" stop-color="#94a3b8" />
+    </linearGradient>
+    <filter id="cyanGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Deep space background circle -->
+  <rect width="400" height="400" fill="url(#bgGrad)" />
+
+  <!-- Stars in background -->
+  <circle cx="80" cy="80" r="1.5" fill="#38bdf8" opacity="0.8" />
+  <circle cx="320" cy="60" r="2" fill="#fff" opacity="0.9" />
+  <circle cx="50" cy="220" r="1" fill="#a855f7" opacity="0.7" />
+  <circle cx="340" cy="240" r="1.5" fill="#38bdf8" opacity="0.8" />
+  <circle cx="200" cy="40" r="2" fill="#fff" opacity="0.6" />
+  <circle cx="90" cy="310" r="1.5" fill="#7dd3fc" opacity="0.7" />
+
+  <!-- Orbit line -->
+  <ellipse cx="200" cy="200" rx="170" ry="80" fill="none" stroke="rgba(56, 189, 248, 0.25)" stroke-width="1.5" stroke-dasharray="6,6" transform="rotate(-20 200 200)" />
+
+  <!-- Astronaut Suit / Shoulders -->
+  <path d="M 110 390 C 110 290, 290 290, 290 390 Z" fill="url(#suitGrad)" />
+  <!-- Suit Collar / Tech Ring -->
+  <ellipse cx="200" cy="285" rx="72" ry="24" fill="#0f172a" stroke="#38bdf8" stroke-width="2.5" filter="url(#cyanGlow)" />
+  <ellipse cx="200" cy="285" rx="60" ry="18" fill="#1e293b" />
+
+  <!-- Suit Chest Emblem / Neon Badge -->
+  <rect x="180" y="325" width="40" height="18" rx="4" fill="#0284c7" />
+  <circle cx="190" cy="334" r="3" fill="#38bdf8" />
+  <circle cx="202" cy="334" r="3" fill="#22c55e" />
+  <circle cx="214" cy="334" r="3" fill="#f59e0b" />
+
+  <!-- Helmet Body -->
+  <circle cx="200" cy="180" r="88" fill="#f8fafc" stroke="#cbd5e1" stroke-width="3" />
+
+  <!-- Helmet Visor (Glow glass with reflection) -->
+  <ellipse cx="200" cy="180" rx="68" ry="54" fill="url(#visorGrad)" stroke="#38bdf8" stroke-width="2.5" filter="url(#cyanGlow)" />
+
+  <!-- Visor Neon HUD / Grid Lines inside reflection -->
+  <path d="M 155 175 Q 200 160 245 175" fill="none" stroke="rgba(255, 255, 255, 0.4)" stroke-width="2" />
+  <ellipse cx="178" cy="160" rx="22" ry="8" fill="rgba(255, 255, 255, 0.6)" transform="rotate(-20 178 160)" />
+
+  <!-- Communication Mic / Antenna -->
+  <path d="M 116 195 Q 100 205 106 220" fill="none" stroke="#64748b" stroke-width="3" stroke-linecap="round" />
+  <circle cx="106" cy="222" r="5" fill="#38bdf8" filter="url(#cyanGlow)" />
+
+  <!-- Star cadet badge -->
+  <polygon points="200,102 203,110 211,110 204,115 207,123 200,118 193,123 196,115 189,110 197,110" fill="#38bdf8" />
+</svg>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Azza Khairul Imam | Personal Portfolio - Space Edition</title>
+  <meta name="description" content="Personal portfolio website of Azza Khairul Imam - Junior Developer with space dark theme and futuristic animations.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            space: {
+              950: '#02040a',
+              900: '#060b18',
+              800: '#0b1329',
+              700: '#142145'
+            },
+            cyan: {
+              400: '#38bdf8',
+              500: '#0ea5e9'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom Space Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#02040a] text-slate-100 min-h-screen selection:bg-cyan-500 selection:text-white">
+
+  <!-- =========================================================================
+       BACKGROUND KOSMIK: CANVAS BINTANG & NEBULA GLOW
+       ========================================================================= -->
+  <canvas id="space-canvas"></canvas>
+  <div class="nebula-orb nebula-1"></div>
+  <div class="nebula-orb nebula-2"></div>
+  <div class="nebula-orb nebula-3"></div>
+
+  <!-- =========================================================================
+       NAVBAR MELAYANG DI TENGAH ATAS DENGAN EFEK GLOW BIRU
+       ========================================================================= -->
+  <header class="floating-navbar-container">
+    <nav class="floating-navbar">
+      <!-- Logo / Nama Brand -->
+      <a href="#home" class="nav-brand">
+        <span class="nav-brand-dot"></span>
+        <span class="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent font-bold">AZZA</span>
+        <span class="text-xs text-slate-400 font-mono tracking-widest hidden sm:inline">.DEV</span>
+      </a>
+
+      <!-- Menu Navigasi Desktop -->
+      <ul class="nav-links">
+        <li class="nav-item"><a href="#home" class="active"><i class="fas fa-home text-xs mr-1"></i> Beranda</a></li>
+        <li class="nav-item"><a href="#about"><i class="fas fa-user-astronaut text-xs mr-1"></i> Tentang</a></li>
+        <li class="nav-item"><a href="#education"><i class="fas fa-graduation-cap text-xs mr-1"></i> Pendidikan</a></li>
+        <li class="nav-item"><a href="#experience"><i class="fas fa-briefcase text-xs mr-1"></i> Pengalaman</a></li>
+        <li class="nav-item"><a href="#skills"><i class="fas fa-microchip text-xs mr-1"></i> Keahlian</a></li>
+        <li class="nav-item"><a href="#projects"><i class="fas fa-satellite text-xs mr-1"></i> Proyek</a></li>
+        <li class="nav-item"><a href="#contact"><i class="fas fa-paper-plane text-xs mr-1"></i> Kontak</a></li>
+      </ul>
+
+      <!-- Tombol Hamburger Mobile -->
+      <button id="mobile-toggle-btn" class="mobile-nav-btn" aria-label="Buka Menu Navigasi">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+
+    <!-- Menu Drawer Mobile -->
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="#home"><i class="fas fa-home text-cyan-400"></i> Beranda</a>
+      <a href="#about"><i class="fas fa-user-astronaut text-cyan-400"></i> Tentang Saya</a>
+      <a href="#education"><i class="fas fa-graduation-cap text-cyan-400"></i> Riwayat Pendidikan</a>
+      <a href="#experience"><i class="fas fa-briefcase text-cyan-400"></i> Pengalaman Kerja</a>
+      <a href="#skills"><i class="fas fa-microchip text-cyan-400"></i> Keahlian & Tech Stack</a>
+      <a href="#projects"><i class="fas fa-satellite text-cyan-400"></i> Proyek Unggulan</a>
+      <a href="#contact"><i class="fas fa-paper-plane text-cyan-400"></i> Hubungi Saya</a>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       HERO SECTION: NAMA BESAR, TEKS MENGETIK, & ANIMASI
+       ========================================================================= -->
+  <section id="home" class="relative z-10 min-h-screen flex items-center justify-center pt-28 pb-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto text-center">
+      
+      <!-- Status Badge Kosmik -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-950/70 border border-cyan-500/40 text-cyan-300 text-xs sm:text-sm font-medium mb-6 shadow-[0_0_20px_rgba(56,189,248,0.25)] backdrop-blur-md">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+        <span class="w-2 h-2 rounded-full bg-cyan-400 -ml-4"></span>
+        <span id="hero-status-badge">Misi Antariksa: Junior Developer Siap Berkolaborasi</span>
+      </div>
+
+      <!-- Nama Besar AZZA KHAIRUL IMAM -->
+      <h1 class="font-orbitron font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight mb-4">
+        <span class="title-gradient text-glow-cyan dynamic-name">AZZA KHAIRUL IMAM</span>
+      </h1>
+
+      <!-- Teks yang Mengetik Sendiri Bergantian (Typewriter Effect) -->
+      <div class="h-12 sm:h-14 flex items-center justify-center font-space text-xl sm:text-2xl md:text-3xl text-cyan-300 font-semibold mb-6">
+        <span class="text-slate-400 mr-2">Saya seorang</span>
+        <span id="typewriter-text" class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300">Junior Developer</span>
+        <span class="typewriter-cursor">|</span>
+      </div>
+
+      <!-- Subtitle Ringkas -->
+      <p class="max-w-2xl mx-auto text-slate-400 text-sm sm:text-base md:text-lg mb-10 leading-relaxed font-light">
+        Menjelajahi luasnya semesta rekayasa web melalui kode bersih, antarmuka modern yang memukau, serta performa tinggi tanpa batas.
+      </p>
+
+      <!-- Tombol Aksi (Call To Action) -->
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="#about" class="btn-cosmic-primary">
+          <i class="fas fa-rocket"></i> Jelajahi Profil
+        </a>
+        <a href="#contact" class="btn-cosmic-secondary">
+          <i class="fas fa-envelope"></i> Hubungi Saya
+        </a>
+        <a href="data.js" target="_blank" class="btn-cosmic-secondary" title="Buka file konfigurasi data">
+          <i class="fas fa-code"></i> Edit Data Portofolio
+        </a>
+      </div>
+
+      <!-- Indikator Scroll ke Bawah -->
+      <div class="mt-16 sm:mt-20 flex flex-col items-center justify-center text-slate-500 hover:text-cyan-400 transition-colors">
+        <a href="#about" class="flex flex-col items-center gap-2 text-xs tracking-widest uppercase">
+          <span>Meluncur ke Bawah</span>
+          <i class="fas fa-chevron-down animate-bounce text-cyan-400 text-sm"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION ABOUT ME (TENTANG SAYA & FOTO PROFIL)
+       ========================================================================= -->
+  <section id="about" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-900">
+    <div class="max-w-6xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <span class="star-badge mb-3"><i class="fas fa-user-astronaut"></i> Profil Astronot</span>
+        <h2 class="font-orbitron font-extrabold text-3xl sm:text-4xl text-white">
+          Tentang <span class="text-cyan-400">Saya</span>
+        </h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto mt-3 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Foto Profil dengan Frame Orbit Kosmik -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="avatar-orbit-container">
+            <!-- Cincin Luar Berputar -->
+            <div class="avatar-ring-outer"></div>
+            <!-- Cincin Tengah Berputar Berlawanan -->
+            <div class="avatar-ring-middle"></div>
+            <!-- Satelit Planet Mini -->
+            <div class="avatar-planet-satellite"></div>
+
+            <!-- Wrapper Gambar Profil -->
+            <div class="avatar-img-wrapper">
+              <img id="profile-img" src="assets/profile-avatar.svg" alt="Azza Khairul Imam" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <!-- Deskripsi Bio & Statistik Pribadi -->
+        <div class="lg:col-span-7">
+          <div class="cosmic-card p-6 sm:p-8">
+            <h3 class="font-orbitron text-2xl font-bold text-white mb-3 flex items-center gap-2">
+              <span class="text-cyan-400 dynamic-name">AZZA KHAIRUL IMAM</span>
+            </h3>
+            
+            <p class="text-cyan-400 text-sm font-semibold tracking-wide uppercase mb-4 flex items-center gap-2">
+              <i class="fas fa-map-marker-alt text-cyan-400"></i> Berbasis di Indonesia | Siap untuk Kerja Remote & Onsite
+            </p>
+
+            <!-- Bio Dinamis (Diambil dari data.js) -->
+            <div id="bio-container" class="space-y-3 mb-6">
+              <p class="text-slate-300 leading-relaxed text-base">
+                Halo! Saya Azza Khairul Imam, seorang Junior Developer yang memiliki antusiasme mendalam dalam menjelajahi semesta rekayasa web dan teknologi perangkat lunak.
+              </p>
+            </div>
+
+            <!-- Highlight Info Box -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-slate-800 text-sm mb-6">
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-cyan-950/60 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                  <i class="fas fa-terminal"></i>
+                </span>
+                <div>
+                  <div class="text-xs text-slate-400">Fokus Utama</div>
+                  <div class="font-medium text-slate-200">Frontend & Web Development</div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-indigo-950/60 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+                  <i class="fas fa-bolt"></i>
+                </span>
+                <div>
+                  <div class="text-xs text-slate-400">Status Ketersediaan</div>
+                  <div class="font-medium text-emerald-400">Tersedia untuk Proyek / Kerja</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Statistik Angka (Diambil dari data.js) -->
+            <div id="stats-container" class="grid grid-cols-3 gap-3">
+              <!-- Render otomatis via script.js -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION RIWAYAT PENDIDIKAN & PENGALAMAN KERJA (TIMELINE KOSMIK)
+       ========================================================================= -->
+  <section id="education" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-900 bg-space-900/20">
+    <div class="max-w-6xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <span class="star-badge mb-3"><i class="fas fa-compass"></i> Perjalanan Akademis & Karir</span>
+        <h2 class="font-orbitron font-extrabold text-3xl sm:text-4xl text-white">
+          Pendidikan & <span class="text-cyan-400">Pengalaman</span>
+        </h2>
+        <p class="text-slate-400 text-sm max-w-xl mx-auto mt-2">
+          Riwayat pembelajaran terstruktur dan rekam jejak kontribusi profesional yang mudah Anda modifikasi melalui file data.js.
+        </p>
+        <div class="w-20 h-1 bg-gradient-to-r from-cyan-500 to-indigo-500 mx-auto mt-3 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        
+        <!-- KOLOM 1: RIWAYAT PENDIDIKAN -->
+        <div>
+          <div class="flex items-center gap-3 mb-8">
+            <div class="w-10 h-10 rounded-xl bg-cyan-950/80 border border-cyan-500/40 flex items-center justify-center text-cyan-400 text-lg shadow-[0_0_15px_rgba(56,189,248,0.3)]">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div>
+              <h3 class="font-orbitron font-bold text-2xl text-white">Riwayat Pendidikan</h3>
+              <p class="text-xs text-slate-400">Jejak pendidikan formal dan akademis</p>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="timeline-stem"></div>
+            <!-- Daftar Pendidikan (Dinamis dari data.js) -->
+            <div id="education-list">
+              <!-- Render otomatis via script.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- KOLOM 2: PENGALAMAN KERJA & ORGANISASI -->
+        <div id="experience">
+          <div class="flex items-center gap-3 mb-8">
+            <div class="w-10 h-10 rounded-xl bg-indigo-950/80 border border-indigo-500/40 flex items-center justify-center text-indigo-400 text-lg shadow-[0_0_15px_rgba(129,140,248,0.3)]">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <div>
+              <h3 class="font-orbitron font-bold text-2xl text-white">Pengalaman Kerja</h3>
+              <p class="text-xs text-slate-400">Pengalaman profesional, magang & proyek</p>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="timeline-stem" style="background: linear-gradient(180deg, #818cf8 0%, #38bdf8 100%);"></div>
+            <!-- Daftar Pengalaman (Dinamis dari data.js) -->
+            <div id="experience-list">
+              <!-- Render otomatis via script.js -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION KEAHLIAN / TECH STACK
+       ========================================================================= -->
+  <section id="skills" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-900">
+    <div class="max-w-6xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <span class="star-badge mb-3"><i class="fas fa-code-branch"></i> Modul Kemampuan</span>
+        <h2 class="font-orbitron font-extrabold text-3xl sm:text-4xl text-white">
+          Keahlian & <span class="text-cyan-400">Teknologi</span>
+        </h2>
+        <p class="text-slate-400 text-sm max-w-xl mx-auto mt-2">
+          Teknologi dan perkakas yang saya gunakan untuk mewujudkan ide digital menjadi kenyataan.
+        </p>
+        <div class="w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto mt-3 rounded-full"></div>
+      </div>
+
+      <!-- Grid Keahlian (Dinamis dari data.js) -->
+      <div id="skills-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Render otomatis via script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION PROYEK UNGGULAN
+       ========================================================================= -->
+  <section id="projects" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-900 bg-space-900/30">
+    <div class="max-w-6xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <span class="star-badge mb-3"><i class="fas fa-satellite-dish"></i> Ekspedisi Portofolio</span>
+        <h2 class="font-orbitron font-extrabold text-3xl sm:text-4xl text-white">
+          Proyek <span class="text-cyan-400">Pilihan</span>
+        </h2>
+        <p class="text-slate-400 text-sm max-w-xl mx-auto mt-2">
+          Beberapa karya dan eksperimen pengembangan website yang telah saya kerjakan.
+        </p>
+        <div class="w-20 h-1 bg-gradient-to-r from-cyan-500 to-indigo-500 mx-auto mt-3 rounded-full"></div>
+      </div>
+
+      <!-- Grid Proyek (Dinamis dari data.js) -->
+      <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Render otomatis via script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION HUBUNGI SAYA (KONTAK)
+       ========================================================================= -->
+  <section id="contact" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-900">
+    <div class="max-w-5xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <span class="star-badge mb-3"><i class="fas fa-signal"></i> Frekuensi Terbuka</span>
+        <h2 class="font-orbitron font-extrabold text-3xl sm:text-4xl text-white">
+          Hubungi <span class="text-cyan-400">Saya</span>
+        </h2>
+        <p class="text-slate-400 text-sm max-w-xl mx-auto mt-2">
+          Tertarik untuk berkolaborasi atau memiliki pertanyaan seputar proyek? Kirim transmisi sinyal Anda sekarang!
+        </p>
+        <div class="w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto mt-3 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Kartu Informasi Kontak Cepat -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="cosmic-card p-6">
+            <h4 class="font-orbitron text-lg font-bold text-white mb-4 flex items-center gap-2">
+              <i class="fas fa-satellite text-cyan-400"></i> Informasi Kontak
+            </h4>
+
+            <div class="space-y-4 text-sm">
+              <!-- Email Item -->
+              <div class="flex items-start gap-3">
+                <span class="w-10 h-10 rounded-lg bg-cyan-950/80 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
+                  <i class="fas fa-envelope"></i>
+                </span>
+                <div class="flex-1 overflow-hidden">
+                  <div class="text-xs text-slate-400">Email Utama</div>
+                  <div id="contact-email-text" class="text-slate-200 font-medium truncate">azza.khairul.imam@example.com</div>
+                  <button id="copy-email-btn" class="text-xs text-cyan-400 hover:text-cyan-300 mt-1 inline-flex items-center gap-1">
+                    <i class="fas fa-copy"></i> Salin Email
+                  </button>
+                </div>
+              </div>
+
+              <!-- WhatsApp Item -->
+              <div class="flex items-start gap-3">
+                <span class="w-10 h-10 rounded-lg bg-emerald-950/80 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                  <i class="fab fa-whatsapp"></i>
+                </span>
+                <div>
+                  <div class="text-xs text-slate-400">WhatsApp Direct</div>
+                  <a id="contact-whatsapp-link" href="#" target="_blank" class="text-slate-200 hover:text-emerald-300 font-medium flex items-center gap-1.5 mt-0.5">
+                    Kirim Pesan WhatsApp <i class="fas fa-external-link-alt text-xs"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Lokasi Item -->
+              <div class="flex items-start gap-3">
+                <span class="w-10 h-10 rounded-lg bg-indigo-950/80 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0">
+                  <i class="fas fa-globe-asia"></i>
+                </span>
+                <div>
+                  <div class="text-xs text-slate-400">Koordinat / Lokasi</div>
+                  <div class="text-slate-200 font-medium">Indonesia (WIB / GMT+7)</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tautan Media Sosial -->
+            <div class="pt-6 mt-6 border-t border-slate-800">
+              <div class="text-xs text-slate-400 uppercase tracking-wider mb-3">Tautan Sosial</div>
+              <div class="flex gap-2">
+                <a href="https://github.com" target="_blank" class="w-9 h-9 rounded-lg bg-slate-800/80 hover:bg-cyan-500/20 text-slate-300 hover:text-cyan-400 border border-slate-700 hover:border-cyan-500/40 flex items-center justify-center transition-all">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="w-9 h-9 rounded-lg bg-slate-800/80 hover:bg-cyan-500/20 text-slate-300 hover:text-cyan-400 border border-slate-700 hover:border-cyan-500/40 flex items-center justify-center transition-all">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="w-9 h-9 rounded-lg bg-slate-800/80 hover:bg-cyan-500/20 text-slate-300 hover:text-cyan-400 border border-slate-700 hover:border-cyan-500/40 flex items-center justify-center transition-all">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:azza.khairul.imam@example.com" id="contact-email-link" class="w-9 h-9 rounded-lg bg-slate-800/80 hover:bg-cyan-500/20 text-slate-300 hover:text-cyan-400 border border-slate-700 hover:border-cyan-500/40 flex items-center justify-center transition-all">
+                  <i class="fas fa-paper-plane"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulir Pengiriman Pesan Cepat -->
+        <div class="lg:col-span-7">
+          <form id="contact-form" class="cosmic-card p-6 sm:p-8 space-y-4">
+            <h4 class="font-orbitron text-lg font-bold text-white mb-2 flex items-center gap-2">
+              <i class="fas fa-paper-plane text-cyan-400"></i> Kirim Pesan Langsung
+            </h4>
+
+            <div>
+              <label for="form-name" class="block text-xs font-medium text-slate-300 mb-1.5">Nama Anda</label>
+              <input type="text" id="form-name" required placeholder="Masukkan nama atau instansi Anda..." class="w-full bg-slate-950/80 border border-slate-800 focus:border-cyan-400 rounded-xl px-4 py-3 text-slate-100 text-sm focus:outline-none focus:ring-1 focus:ring-cyan-400 transition-all">
+            </div>
+
+            <div>
+              <label for="form-email" class="block text-xs font-medium text-slate-300 mb-1.5">Alamat Email</label>
+              <input type="email" id="form-email" required placeholder="nama@email.com..." class="w-full bg-slate-950/80 border border-slate-800 focus:border-cyan-400 rounded-xl px-4 py-3 text-slate-100 text-sm focus:outline-none focus:ring-1 focus:ring-cyan-400 transition-all">
+            </div>
+
+            <div>
+              <label for="form-message" class="block text-xs font-medium text-slate-300 mb-1.5">Isi Pesan</label>
+              <textarea id="form-message" rows="4" required placeholder="Tuliskan proyek, penawaran, atau pertanyaan Anda..." class="w-full bg-slate-950/80 border border-slate-800 focus:border-cyan-400 rounded-xl px-4 py-3 text-slate-100 text-sm focus:outline-none focus:ring-1 focus:ring-cyan-400 transition-all resize-none"></textarea>
+            </div>
+
+            <button type="submit" class="btn-cosmic-primary w-full justify-center">
+              <i class="fas fa-rocket mr-1"></i> Kirimkan Sinyal Pesan
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="relative z-10 py-10 px-4 border-t border-slate-900 bg-black/60 text-center text-xs text-slate-400">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+        <span class="font-orbitron font-bold text-white tracking-wider">AZZA KHAIRUL IMAM</span>
+        <span>© 2026 • Space Edition Portfolio</span>
+      </div>
+
+      <div class="text-slate-400">
+        Dirancang dengan <i class="fas fa-heart text-cyan-400"></i> di Semesta Web
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       TOMBOL ROCKET KEMBALI KE ATAS
+       ========================================================================= -->
+  <button id="rocket-top-btn" class="rocket-top-btn" aria-label="Kembali ke Atas Orbit">
+    <i class="fas fa-rocket"></i>
+  </button>
+
+  <!-- =========================================================================
+       SCRIPTS
+       ========================================================================= -->
+  <!-- 1. File Data Profil & Riwayat (Gampang Diubah!) -->
+  <script src="data.js"></script>
+  <!-- 2. Logic Interaksi & Animasi Luar Angkasa -->
+  <script src="script.js"></script>
+</body>
+</html>
